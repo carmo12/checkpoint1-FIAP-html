@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabine — catálogo de filmes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="tira-perfurada" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- CABINE DO PROJECIONISTA (formulário) -->
+    <aside class="cabine">
+      <div class="cabine-topo">
+        <img
+          class="icone-projetor"
+          alt="Ícone de um projetor de cinema"
+          src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='16' cy='32' r='13' fill='none' stroke='%23E8B64C' stroke-width='3'/%3E%3Ccircle cx='16' cy='32' r='4' fill='%23E8B64C'/%3E%3Crect x='28' y='22' width='20' height='20' rx='2' fill='%23C8102E'/%3E%3Cpath d='M48 27l10-6v22l-10-6z' fill='%23E8B64C'/%3E%3C/svg%3E"
+        />
+        <h1>Cabine</h1>
+      </div>
+
+      <p class="subtitulo">Todo filme que passa por aqui ganha um cartaz na parede da sala. Preencha os dados da sessão ao lado.</p>
+
+      <div class="campo">
+        <label for="input-titulo">Título</label>
+        <input type="text" id="input-titulo" placeholder="Ex.: Cidade de Deus" />
+      </div>
+
+      <div class="campo-linha">
+        <div class="campo">
+          <label for="input-ano">Ano</label>
+          <select id="input-ano" required>
+            <option value="" disabled selected>Selecione</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="input-genero">Gênero</label>
+          <select id="input-genero">
+            <option value="" disabled selected>Selecione</option>
+            <option value="Drama">Drama</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Ação">Ação</option>
+            <option value="Ficção Científica">Ficção Científica</option>
+            <option value="Terror">Terror</option>
+            <option value="Romance">Romance</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Animação">Animação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Documentário">Documentário</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Classificação</label>
+        <div class="estrelas" id="estrelas">
+          <button type="button" class="estrela" data-valor="1">★</button>
+          <button type="button" class="estrela" data-valor="2">★</button>
+          <button type="button" class="estrela" data-valor="3">★</button>
+          <button type="button" class="estrela" data-valor="4">★</button>
+          <button type="button" class="estrela" data-valor="5">★</button>
+        </div>
+      </div>
+
+      <button id="btn-adicionar">Exibir na sala</button>
+      <p class="erro" id="mensagem-erro"></p>
+
+      <div class="stats">
+        <p><span id="contador">0</span> filme(s) em cartaz</p>
+        <p class="stats-sub" id="ultimo-filme">A sala ainda está vazia. Anuncie a primeira sessão.</p>
+      </div>
+    </aside>
+
+    <!-- SALA DE EXIBIÇÃO (catálogo) -->
+    <main class="sala">
+      <div class="cartazes" id="cartazes">
+        <!-- os cartazes dos filmes são inseridos aqui via JavaScript -->
+      </div>
+    </main>
+
+  </div>
+
+  <div class="tira-perfurada" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
