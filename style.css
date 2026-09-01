@@ -1,4 +1,5 @@
-/* ===== Tokens ===== */
+
+/* Variáveis de cores e fontes */
 :root {
   --preto-sala: #0d0d0f;
   --preto-cabine: #17161a;
@@ -14,10 +15,12 @@
   --fonte-utilitaria: "IBM Plex Mono", monospace;
 }
 
+/* Inclui padding e borda no tamanho total dos elementos */
 * {
   box-sizing: border-box;
 }
 
+/* Estilo geral da página */
 body {
   margin: 0;
   padding: 0;
@@ -26,10 +29,12 @@ body {
   font-family: var(--fonte-corpo);
 }
 
-/* ===== Tira de filme decorativa (topo e rodapé) ===== */
+/* Tira decorativa de filme */
 .tira-perfurada {
   height: 14px;
   background-color: #000;
+
+  /* Cria o efeito de perfuração da película */
   background-image: repeating-linear-gradient(
     90deg,
     var(--dourado-luz) 0px,
@@ -37,6 +42,7 @@ body {
     transparent 8px,
     transparent 24px
   );
+
   background-position: center;
   background-repeat: repeat-x;
   background-size: 24px 6px;
@@ -44,29 +50,36 @@ body {
   border-bottom: 1px solid rgba(232, 182, 76, 0.15);
 }
 
-/* ===== Layout geral ===== */
+/* Container principal */
 .app {
   display: flex;
   min-height: calc(100vh - 28px);
 }
 
-/* ===== Cabine do projecionista (sidebar) ===== */
+/* Área lateral do formulário */
 .cabine {
   width: 360px;
   flex-shrink: 0;
+
+  /* Fundo com efeito de sombra e degradê */
   background:
     radial-gradient(circle at 20% 0%, var(--lilas-sombra) 0%, transparent 50%),
     linear-gradient(170deg, var(--preto-cabine) 0%, #0a090c 100%);
+
   color: var(--creme);
   padding: 44px 32px;
+
+  /* Organiza os elementos verticalmente */
   display: flex;
   flex-direction: column;
   gap: 18px;
+
   box-shadow: 6px 0 30px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 2;
 }
 
+/* Cabeçalho da cabine */
 .cabine-topo {
   display: flex;
   align-items: center;
@@ -75,12 +88,14 @@ body {
   border-bottom: 1px solid rgba(232, 182, 76, 0.2);
 }
 
+/* Ícone do projetor */
 .icone-projetor {
   width: 46px;
   height: 46px;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
 }
 
+/* Título principal */
 .cabine h1 {
   font-family: var(--fonte-marquise);
   font-weight: 400;
@@ -92,6 +107,7 @@ body {
   text-shadow: 0 0 18px rgba(232, 182, 76, 0.35);
 }
 
+/* Texto explicativo */
 .subtitulo {
   font-size: 14px;
   line-height: 1.6;
@@ -99,6 +115,7 @@ body {
   margin: 0 0 4px 0;
 }
 
+/* Organização dos campos */
 .campo {
   display: flex;
   flex-direction: column;
@@ -106,11 +123,13 @@ body {
   flex: 1;
 }
 
+/* Organiza dois campos lado a lado */
 .campo-linha {
   display: flex;
   gap: 14px;
 }
 
+/* Rótulos dos campos */
 .campo label {
   font-family: var(--fonte-utilitaria);
   font-size: 10.5px;
@@ -119,6 +138,7 @@ body {
   color: var(--dourado-luz);
 }
 
+/* Campo de texto */
 .campo input {
   padding: 12px 14px;
   border-radius: 4px;
@@ -127,17 +147,22 @@ body {
   color: var(--creme);
   font-family: var(--fonte-corpo);
   font-size: 14.5px;
+
+  /* Animação suave nas interações */
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+/* Cor do texto de exemplo */
 .campo input::placeholder {
   color: rgba(242, 236, 225, 0.3);
 }
 
+/* Efeito ao passar o mouse */
 .campo input:hover {
   border-color: rgba(232, 182, 76, 0.3);
 }
 
+/* Estilo do campo selecionado */
 .campo input:focus {
   outline: none;
   border-color: var(--dourado-luz);
@@ -145,38 +170,50 @@ body {
   box-shadow: 0 0 0 3px rgba(232, 182, 76, 0.15);
 }
 
+/* Lista de seleção */
 .campo select {
   padding: 12px 14px;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: rgba(0, 0, 0, 0.35);
+
+  /* Cria a seta personalizada do select */
   background-image: linear-gradient(45deg, transparent 50%, var(--dourado-luz) 50%),
     linear-gradient(135deg, var(--dourado-luz) 50%, transparent 50%);
+
   background-position: calc(100% - 18px) center, calc(100% - 13px) center;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
+
   color: var(--creme);
   font-family: var(--fonte-corpo);
   font-size: 14.5px;
+
+  /* Remove o estilo padrão do navegador */
   appearance: none;
   -webkit-appearance: none;
+
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+/* Estilo quando nenhum valor foi selecionado */
 .campo select:invalid {
   color: rgba(242, 236, 225, 0.4);
 }
 
+/* Opções da lista */
 .campo select option {
   background-color: var(--preto-cabine);
   color: var(--creme);
 }
 
+/* Efeito ao passar o mouse */
 .campo select:hover {
   border-color: rgba(232, 182, 76, 0.3);
 }
 
+/* Estilo do select selecionado */
 .campo select:focus {
   outline: none;
   border-color: var(--dourado-luz);
@@ -184,12 +221,13 @@ body {
   box-shadow: 0 0 0 3px rgba(232, 182, 76, 0.15);
 }
 
-/* ===== Classificação por estrelas ===== */
+/* Área das estrelas */
 .estrelas {
   display: flex;
   gap: 6px;
 }
 
+/* Botão de cada estrela */
 .estrela {
   width: 40px;
   height: 40px;
@@ -203,22 +241,30 @@ body {
   transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
+/* Efeito ao passar o mouse na estrela */
 .estrela:hover {
   border-color: rgba(232, 182, 76, 0.4);
   transform: translateY(-2px);
 }
 
+/* Estrela selecionada */
 .estrela.selecionada {
   color: var(--dourado-luz);
   text-shadow: 0 0 10px rgba(232, 182, 76, 0.45);
 }
 
+/* Botão para adicionar o filme */
 #btn-adicionar {
   margin-top: 8px;
   padding: 14px 18px;
   border: none;
   border-radius: 4px;
-  background: linear-gradient(135deg, var(--vermelho-cortina), var(--vermelho-escuro));
+  background: linear-gradient(
+    135deg,
+    var(--vermelho-cortina),
+    var(--vermelho-escuro)
+  );
+
   color: var(--creme);
   font-family: var(--fonte-marquise);
   font-size: 18px;
@@ -228,17 +274,20 @@ body {
   transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
+/* Efeito ao passar o mouse */
 #btn-adicionar:hover {
   filter: brightness(1.12);
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(200, 16, 46, 0.45);
 }
 
+/* Efeito ao clicar */
 #btn-adicionar:active {
   transform: translateY(0) scale(0.98);
   box-shadow: 0 4px 10px rgba(200, 16, 46, 0.4);
 }
 
+/* Mensagem de erro */
 .erro {
   color: #ff8a8a;
   font-size: 13px;
@@ -246,58 +295,74 @@ body {
   min-height: 16px;
 }
 
+/* Área das estatísticas */
 .stats {
   margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* Espaçamento dos textos */
 .stats p {
   margin: 4px 0;
 }
 
+/* Contador de filmes */
 .stats #contador {
   font-family: var(--fonte-utilitaria);
   color: var(--dourado-luz);
   font-size: 18px;
 }
 
+/* Texto complementar */
 .stats-sub {
   font-size: 13px;
   color: #b8b3ba;
 }
 
-/* ===== Sala de exibição (catálogo) ===== */
+/* Área principal onde os cartazes aparecem */
 .sala {
   flex-grow: 1;
   padding: 48px;
+
+  /* Fundo da sala */
   background:
-    radial-gradient(circle at 80% 0%, rgba(200, 16, 46, 0.08) 0%, transparent 45%),
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(200, 16, 46, 0.08) 0%,
+      transparent 45%
+    ),
     var(--preto-sala);
 }
 
+/* Organiza os cartazes em formato de grade */
 .cartazes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 26px;
 }
 
-/* Cartaz de cada filme (gerado via JS) */
+/* Estilo de cada cartaz */
 .cartaz {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* Animação ao aparecer */
   animation: projetar 0.35s ease;
+
   position: relative;
 }
 
+/* Efeito ao passar o mouse */
 .cartaz:hover {
   transform: translateY(-8px) rotate(-1deg);
   box-shadow: 0 20px 34px rgba(0, 0, 0, 0.6);
 }
 
+/* Parte visual do cartaz */
 .cartaz-arte {
   height: 210px;
   display: flex;
@@ -310,18 +375,25 @@ body {
   position: relative;
 }
 
+/* Cria um degradê sobre a arte */
 .cartaz-arte::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
 }
 
+/* Informações do filme */
 .cartaz-info {
   background-color: #141317;
   padding: 12px 14px 14px;
 }
 
+/* Título do filme */
 .cartaz-titulo {
   font-family: var(--fonte-corpo);
   font-weight: 600;
@@ -330,6 +402,7 @@ body {
   color: var(--creme);
 }
 
+/* Ano e classificação */
 .cartaz-meta {
   font-family: var(--fonte-utilitaria);
   font-size: 11.5px;
@@ -337,6 +410,7 @@ body {
   margin: 0 0 6px 0;
 }
 
+/* Identificação do gênero */
 .cartaz-genero {
   display: inline-block;
   font-size: 11px;
@@ -347,6 +421,7 @@ body {
   border: 1px solid rgba(232, 182, 76, 0.3);
 }
 
+/* Botão para remover o filme */
 .cartaz-remover {
   position: absolute;
   top: 8px;
@@ -363,22 +438,28 @@ body {
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
+
+  /* Inicialmente o botão fica escondido */
   opacity: 0;
   transform: scale(0.85);
+
   transition: opacity 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
   z-index: 3;
 }
 
+/* Destaca o botão de remover */
 .cartaz-remover:hover {
   background-color: var(--vermelho-cortina);
 }
 
+/* Mostra o botão ao passar o mouse no cartaz */
 .cartaz:hover .cartaz-remover,
 .cartaz-remover:focus {
   opacity: 1;
   transform: scale(1);
 }
 
+/* Mantém o botão visível em telas touch */
 @media (hover: none) {
   .cartaz-remover {
     opacity: 1;
@@ -386,6 +467,7 @@ body {
   }
 }
 
+/* Mensagem exibida quando não existem filmes */
 .sala-vazia {
   color: rgba(242, 236, 225, 0.35);
   font-family: var(--fonte-utilitaria);
@@ -395,29 +477,35 @@ body {
   text-align: center;
 }
 
+/* Animação de entrada dos cartazes */
 @keyframes projetar {
   from {
     opacity: 0;
     transform: scale(0.92);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-/* ===== Responsividade ===== */
+/* Ajustes para telas menores */
 @media (max-width: 780px) {
+
+  /* Organiza as áreas verticalmente */
   .app {
     flex-direction: column;
   }
 
+  /* Ajusta a largura da cabine */
   .cabine {
     width: 100%;
     padding: 32px 24px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
 
+  /* Coloca os campos um abaixo do outro */
   .campo-linha {
     flex-direction: column;
     gap: 18px;
@@ -427,10 +515,12 @@ body {
     margin-top: 24px;
   }
 
+  /* Ajusta o espaçamento da sala */
   .sala {
     padding: 32px 24px;
   }
 
+  /* Ajusta o tamanho dos cartazes */
   .cartazes {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 18px;
@@ -442,7 +532,9 @@ body {
   }
 }
 
+/* Ajustes para celulares pequenos */
 @media (max-width: 420px) {
+
   .cabine h1 {
     font-size: 32px;
   }
