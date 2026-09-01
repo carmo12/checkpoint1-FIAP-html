@@ -8,10 +8,8 @@ Projeto desenvolvido para o **Checkpoint 1** da disciplina, utilizando apenas HT
 
 ## 🔗 Visualização
 
-- **Repositório:** `https://github.com/SEU-USUARIO/catalogo-filmes`
-- **Preview ao vivo:** `https://html-preview.github.io/?url=https://github.com/SEU-USUARIO/catalogo-filmes/blob/main/index.html`
+- **Preview ao vivo:** [Preview](https://carmo12.github.io/checkpoint1-FIAP-html/)
 
-> Troque `SEU-USUARIO` pelo seu usuário do GitHub depois de subir o projeto.
 
 ## ✨ Funcionalidades
 
